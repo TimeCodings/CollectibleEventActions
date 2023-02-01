@@ -1,0 +1,164 @@
+###############################
+# ░█████╗░░░░░░██╗███╗░░░███╗ #
+# ██╔══██╗░░░░░██║████╗░████║ #
+# ██║░░╚═╝░░░░░██║██╔████╔██║ #
+# ██║░░██╗██╗░░██║██║╚██╔╝██║ #
+# ╚█████╔╝╚█████╔╝██║░╚═╝░██║ #
+# ░╚════╝░░╚════╝░╚═╝░░░░░╚═╝ #
+###############################
+#   Made by TimeCode @ 2023   #
+# Plugin-Version: 1.0.1-ALPHA #
+#       (01.02.2023)          #
+#############################################################################################################
+# If you got an error or found a bug (or if you have wishes), join my discord: https://discord.gg/mf9JNrzh  #
+# And Thank You for buying my plugin! Please do not report bugs in the review section, because as a premium #
+# buyer you're able to give me your wishes for the plugin and I will add them soon!                         #
+#############################################################################################################
+
+#Change this to "false" if you want to disable the plugin
+Enabled: true
+
+#Change the general messages
+Messages:
+  WrongSyntax: "&e/joinmessage &chelp"
+  NoPermission: "&cYou do not have the permission to use this command!"
+  OnlyPlayers: "&cSorry, only players are able to execute this command!"
+
+#Set this to "false" if the "PLAYER joined the game" message shouldn't get disabled
+BlockAllDefaultJoinMessages: true
+#Change this to "false" if the gui shouldn't get opened if you type only "/joinmessage"
+OpenGUIWhenOnlyBase: true
+#Change this to "false" if the GUISite shouldn't get saved after you close the GUI
+ResetGUISiteOnClose: true
+
+#Here you can change all Permissions and messages for the plugin
+Command:
+  create:
+    Permission: "cjm.create"
+    MessageSuccess: "&aThe JoinTag &e%tag% &awas created &7(Message: %message%)&a. &eYou can add the JoinTag/Message by typing this command &f/joinmessage add %tag% PLAYER"
+    MessageError: "&cThis JoinTag already exists!"
+  delete:
+    Permission: "cjm.delete"
+    MessageSuccess: "&aThe JoinTag &e%tag% &awas &cdeleted &7(Message: %message%)&a."
+    MessageError: "&cThis JoinTag does not exist!"
+  add:
+    Permission: "cjm.add"
+    MessageSuccess: "&aThe JoinTag &e%tag% &awas added to the player &e%player%&a!"
+    MessageError1: "&cThis JoinTag does not exists!"
+    MessageError2: "&cThis player isn't online right now!"
+    MessageError3: "&cThis player already earned this tag!"
+    Player:
+      Enabled: true
+      Message: "&cWOW! &eYou've earned a new joinmessage! &7(Name: %tag%) &aApply it by using &f/joinmessage apply %tag%"
+  remove:
+    Permission: "cjm.remove"
+    MessageSuccess: "&aThe JoinTag &e%tag% &awas &cremoved &afrom the player &e%player%&a!"
+    MessageError1: "&cThis JoinTag does not exists!"
+    MessageError2: "&cThis player isn't online right now!"
+    MessageError3: "&cThis player doesn't earned this tag right now!"
+    Player:
+      Enabled: false
+      Message: "&cSorry, but your JoinTag %tag% got removed :/"
+  apply:
+    Permission:
+      Enabled: false
+      Permission: "cjm.apply"
+    Others:
+      Permission: "cjm.apply.others"
+      MessageSuccess: "&aYou've applied the tag &e%tag% &a for the player &e%player% &awith the join message: &e%message%"
+      MessageError1: "&cThe player &7%player% &cdo not own this tag!"
+      MessageError2: "&cThis player isn't online right now!"
+      Player:
+        Enabled: true
+        Message: "&aThe JoinTag &e%tag% &awas applied for you!"
+    MessageSuccess: "&aYou've applied the tag &e%tag% &awith the join message: &e%message%"
+    MessageError1: "&cYou do not own this tag!"
+  gui:
+    Permission:
+      Enabled: false
+      Permission: "cjm.gui"
+    Message:
+      Enabled: true
+      Message: "&aYou've opened the &cJoinMessageGUI&a!"
+
+#Change all ItemDatas! If you need help at configuring just join my discord!
+Item:
+  #Change the items in the
+  TagBlocks:
+    #Set the tagname (created with /joinmessage create TAGNAME message)
+    "YOURTAGNAME":
+      #Change the displayname of the item
+      DisplayName: "&dDisplayNameInGUI"
+      #Change the material of the item
+      Material: GRASS_BLOCK
+      #Change the lore of the item
+      Lore:
+        - "&7Click to apply the &dTEST"
+        - "&7Tag to your account!"
+  DefaultTagItem:
+    DisplayName: "&e%tag%"
+    Material: EMERALD
+    Lore:
+      - "&7Click to apply the &e%tag%"
+      - "&7Tag to your account!"
+  ModifySelected:
+    Enchantments:
+      - "FIRE_ASPECT"
+  #Change the Placeholder-Item
+  Placeholder:
+    DisplayName: " "
+    Material: BLACK_STAINED_GLASS_PANE
+  NextSite:
+    DisplayName: "&a&lNext Site"
+    Slot: 26
+    Texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGVmMzU2YWQyYWE3YjE2NzhhZWNiODgyOTBlNWZhNWEzNDI3ZTVlNDU2ZmY0MmZiNTE1NjkwYzY3NTE3YjgifX19"
+    Lore:
+      - "&7Click to got to the"
+      - "&7next site!"
+  PreviousSite:
+    DisplayName: "&a&lPrevious Site"
+    Slot: 18
+    Texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjUzNDc0MjNlZTU1ZGFhNzkyMzY2OGZjYTg1ODE5ODVmZjUzODlhNDU0MzUzMjFlZmFkNTM3YWYyM2QifX19"
+    Lore:
+      - "&7Click to got to the"
+      - "&7previous site!"
+  NoNextSite:
+    DisplayName: "&c&lNext Site"
+    Slot: 26
+    Material: BARRIER
+    Lore:
+      - "&cHey, sorry but you can't"
+      - "&cgo to the next site!"
+  NoPreviousSite:
+    DisplayName: "&c&lPrevious Site"
+    Slot: 18
+    Material: BARRIER
+    Lore:
+      - "&cHey, sorry but you can't"
+      - "&cgo to the previous site!"
+
+#Change the Settings for the CollectibleJoinMessageGUI:
+GUI:
+  #Set the GUITitle
+  Title: "&eSelect your &cJoinMessage &f| &7Site: &f%site%"
+  #Gui Size in Slots
+  Size: 27
+  #Set the item slots
+  Slots:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+  #Change this to "true" if you want that the HeadSlots are glasses/placeholders instead of air
+  SlotsEmpty: true
+
+#"bStats is a free and open source website that helps the developer to collect usage data from his plugin" (Source: bstats.org)
+#If you don't want to send me automatic statistics, disable this with changing it to "false"
+bStats: true
+
+#DON'T CHANGE THIS
+#AFTER CHANGING THIS CONFIG WON'T EXIST ANYMORE
+config-version: 1.0

@@ -1,0 +1,13 @@
+name: CollectibleJoinMessage
+version: 1.0-BETA
+main: dev.timecoding.collectiblejoinmessage.CollectibleJoinMessage
+api-version: 1.19
+authors: [ TimeCoding ]
+description: Adds the ability to create JoinMessages which can be earned by crates, events, commands etc.
+website: timecoding.de
+
+commands:
+  joinmessage:
+    description: "The main command of the plugin CollectibleJoinMessage"
+    aliases:
+      - joinmsg
